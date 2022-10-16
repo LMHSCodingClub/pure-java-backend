@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Arrays;
 
 public class Main {
   public static void main(String[] args) throws Exception {
@@ -19,25 +18,23 @@ public class Main {
           InputStreamReader isr = new InputStreamReader(client.getInputStream());
           BufferedReader br = new BufferedReader(isr);
 
-          // Read the first request from the client
+          // Read the first requeset from the client
           StringBuilder request = new StringBuilder();
-          String line = br.readLine();
-
-          System.out.println(String.format("BufferedReader: %s", Arrays.toString(br.lines().toArray())));
-          System.out.println(line);
-
-          while (!line.isBlank()) {
+          String line; // Temp variable called line that holds one line at a time of our message
+          line = br.readLine();
+          while (line != null && !line.isBlank()) {
             request.append(line + "\r\n");
             line = br.readLine();
           }
 
-          String firstLine = request.toString().split("\n")[0];
-          String resource = firstLine.split(" ")[1];
-          System.out.println(resource);
-
           // Respond
           OutputStream clientOutput = client.getOutputStream();
           clientOutput.write("HTTP/1.1 200 OK\r\n".getBytes());
+          String firstLine = request.toString().split("\n")[0];
+          // Get the second thing "resource" from the first line (separated by spaces)
+          String resource = firstLine.split(" ")[1];
+          // Compare the "resource" to our list of things
+          System.out.println(resource);
 
           if (resource.equals("/varun")) {
             clientOutput.write("\r\n".getBytes());
