@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/com/lmhscodingclub/typeracer/*.jar com.lmhscodingclub.typeracer.Main
+web: java -classpath target/classes com.lmhscodingclub.typeracer.Main
