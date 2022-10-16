@@ -1,1 +1,1 @@
-web: java -jar target/typeracer-api-1.jar
+web: java $JAVA_OPTS -cp target/classes:target/com/lmhscodingclub/typeracer/*.jar com.lmhscodingclub.typeracer.Main
