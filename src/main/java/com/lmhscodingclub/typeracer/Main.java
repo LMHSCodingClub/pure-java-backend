@@ -32,22 +32,23 @@ public class Main {
           clientOutput.write("HTTP/1.1 200 OK\r\n".getBytes());
           String firstLine = request.toString().split("\n")[0];
           // Get the second thing "resource" from the first line (separated by spaces)
-          String resource = firstLine.split(" ")[1];
-          // Compare the "resource" to our list of things
-          System.out.println(resource);
+          if (firstLine.contains("/")) {
+            String resource = firstLine.split(" ")[1];
+            // Compare the "resource" to our list of things
+            System.out.println(resource);
 
-          if (resource.equals("/varun")) {
-            clientOutput.write("\r\n".getBytes());
-            clientOutput.write("404 Not Found".getBytes());
-          } else if (resource.equals("/hello")) {
-            clientOutput.write("Content-Type: application/json, charset=utf-8\r\n".getBytes());
-            clientOutput.write(("\r\n".getBytes()));
-            clientOutput.write("{\"response\": \"Hello world\"}".getBytes());
-          } else {
-            clientOutput.write("\r\n".getBytes());
-            clientOutput.write("What ya lookin' for?".getBytes());
+            if (resource.equals("/varun")) {
+              clientOutput.write("\r\n".getBytes());
+              clientOutput.write("404 Not Found".getBytes());
+            } else if (resource.equals("/hello")) {
+              clientOutput.write("Content-Type: application/json, charset=utf-8\r\n".getBytes());
+              clientOutput.write(("\r\n".getBytes()));
+              clientOutput.write("{\"response\": \"Hello world\"}".getBytes());
+            } else {
+              clientOutput.write("\r\n".getBytes());
+              clientOutput.write("What ya lookin' for?".getBytes());
+            }
           }
-
           System.out.println("---REQUEST---");
           System.out.println(request);
 
