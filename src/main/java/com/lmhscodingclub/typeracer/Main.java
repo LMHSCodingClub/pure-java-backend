@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Arrays;
 
 public class Main {
   public static void main(String[] args) throws Exception {
@@ -22,6 +23,7 @@ public class Main {
           StringBuilder request = new StringBuilder();
           String line = br.readLine();
 
+          System.out.println(String.format("BufferedReader: %s", Arrays.toString(br.lines().toArray())))
           System.out.println(line);
 
           while (!line.isBlank()) {
