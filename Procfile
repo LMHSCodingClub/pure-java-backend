@@ -1,1 +1,1 @@
-web: java -classpath target/classes com.lmhscodingclub.typeracer.Main
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.lmhscodingclub.typeracer.Main
