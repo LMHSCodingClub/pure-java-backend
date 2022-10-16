@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.lmhscodingclub.typeracer.Main
+web: java $JAVA_OPTS -jar target/dependency/typeracer-1.jar --port $PORT target/*.war
