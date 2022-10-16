@@ -1,4 +1,4 @@
-package com.example;
+package com.lmhscodingclub.typeracer.Main;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
