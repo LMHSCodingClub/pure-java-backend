@@ -23,7 +23,7 @@ public class Main {
           StringBuilder request = new StringBuilder();
           String line = br.readLine();
 
-          System.out.println(String.format("BufferedReader: %s", Arrays.toString(br.lines().toArray())))
+          System.out.println(String.format("BufferedReader: %s", Arrays.toString(br.lines().toArray())));
           System.out.println(line);
 
           while (!line.isBlank()) {
