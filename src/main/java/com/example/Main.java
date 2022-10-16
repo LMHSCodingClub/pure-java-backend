@@ -8,7 +8,7 @@ import java.net.Socket;
 
 public class Main {
   public static void main(String[] args) throws Exception {
-    try (ServerSocket serverSocket = new ServerSocket(8080)) {
+    try (ServerSocket serverSocket = new ServerSocket(Integer.valueOf(System.getenv().getOrDefault("PORT", "8080")))) {
       System.out.println("Server started.\nListening for messages.");
 
       while (true) {
