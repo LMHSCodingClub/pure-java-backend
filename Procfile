@@ -1,1 +1,1 @@
-web: java -jar target/typeracer-1.jar
+web: java -jar target/typeracer-api-1.jar
