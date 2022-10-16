@@ -21,6 +21,9 @@ public class Main {
           // Read the first request from the client
           StringBuilder request = new StringBuilder();
           String line = br.readLine();
+
+          System.out.println(line);
+
           while (!line.isBlank()) {
             request.append(line + "\r\n");
             line = br.readLine();
